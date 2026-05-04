@@ -67,7 +67,7 @@ cd Siyam-tool
 ▶️ Run Tool (Every Time)
 
 ```bash
-cd Siyam-tool && python3 Xs.pyc
+cd Siyam-tool && python3 Xs.py
 
 
 ---
