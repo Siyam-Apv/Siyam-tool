@@ -17,13 +17,13 @@
 pkg update && pkg upgrade -y
 
 ```bash
-pkg install python git espeak termux-api -y
+pkg install python git espeak -y
 
 ```bash
-pkg install python clang -y
+pkg install python-cryptography -y
 
 ```bash
-pip install cython
+pip install requests bs4 mechanize urllib3 cryptography
 
 ```bash
 git clone https://github.com/Siyam-Apv/Siyam-tool.git
