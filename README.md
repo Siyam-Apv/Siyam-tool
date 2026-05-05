@@ -7,7 +7,7 @@
 - ✅ Real-Time Login Info Display
 - ✅ Auto-Save Results (OK/CP)
 - ✅ Voice Support (Android & iOS)
-- ✅ Approval System (Admin Panel)
+- ✅ Approval System
 
 ---
 
