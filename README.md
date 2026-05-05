@@ -17,7 +17,16 @@
 pkg update && pkg upgrade -y
 
 ```bash
-pkg install python git espeak -y
+termux-setup-storage
+
+```bash
+pkg install espeak -y
+
+```bash
+pkg install python -y
+
+```bash
+pkg install git -y
 
 ```bash
 pkg install python-cryptography -y
