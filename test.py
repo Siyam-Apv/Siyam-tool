@@ -827,7 +827,7 @@ def BNG_71_():
     print(f"{C}{'║'}{' ' * 12}{Y}(A) OLD Facebook CLONE Id{RESET}{C}{' ' * 27}{'║'}{RESET}")
     print(f"{C}{'║'}{' ' * 48}{C}{'║'}{RESET}")
     print(f"{C}{'╠' + '═' * 48 + '╣'}{RESET}")
-    print(f"{C}{'║'}{' ' * 4}{W}📡 VPN:{RESET} {M}Recommended: Japan / US / Singapore{C}{' ' * 9}{'║'}{RESET}")
+    print(f"{C}{'║'}{' ' * 4}{W}📡 VPN:{RESET} {P}Recommended: Japan / US / Singapore{C}{' ' * 9}{'║'}{RESET}")
     print(f"{C}{'║'}{' ' * 48}{C}{'║'}{RESET}")
     print(f"{C}{'╚' + '═' * 48 + '╝'}{RESET}")
     print()
