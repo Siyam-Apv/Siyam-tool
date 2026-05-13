@@ -1,39 +1,32 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-import subprocess
-import platform
-import time
 
+# ========== FIX FOR 'requires' MODULE ERROR ==========
+# Kono external 'requires' module error thakle ei fix kaj korbe
+for module in list(sys.modules.keys()):
+    if 'requires' in module.lower():
+        del sys.modules[module]
+
+# ========== SILENT INSTALL (Background e) ==========
 def silent_install():
-    """Complete silent install - kono output dekhabe na"""
     try:
+        import subprocess
+        import platform
+        
         # Check if Termux
         result = subprocess.run(['pkg', '--version'], capture_output=True, text=True)
         is_termux = (result.returncode == 0)
-    except:
-        is_termux = False
-    
-    if is_termux:
-        # Sob output discard korbe (user kichu dekhabe na)
-        with open(os.devnull, 'w') as null:
-            # System packages
-            subprocess.run(['pkg', 'install', 'espeak', 'python', '-y'], 
-                         stdout=null, stderr=null)
-            
-            # python-cryptography package (pkg diye)
-            subprocess.run(['pkg', 'install', 'python-cryptography', '-y'], 
-                         stdout=null, stderr=null)
-            
-            # Python pip packages (bs4, requests etc.)
-            subprocess.run(['pip', 'install', 'requests', 'bs4', 'mechanize', 'urllib3', '-q'], 
-                         stdout=null, stderr=null)
         
-        # Small indicator (optional - remove korle completely silent)
-        # print(".", end="")
-        # sys.stdout.flush()
+        if is_termux:
+            with open(os.devnull, 'w') as null:
+                subprocess.run(['pkg', 'install', 'espeak', 'python', 'python-cryptography', '-y'], 
+                             stdout=null, stderr=null)
+                subprocess.run(['pip', 'install', 'requests', 'bs4', 'mechanize', 'urllib3', '-q'], 
+                             stdout=null, stderr=null)
+    except:
+        pass
 
-# Silent install - background e hoye jabe
 silent_install()
 
 
