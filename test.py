@@ -1,35 +1,33 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import subprocess
+import time
 
-# ========== FIX FOR 'requires' MODULE ERROR ==========
-# Kono external 'requires' module error thakle ei fix kaj korbe
-for module in list(sys.modules.keys()):
-    if 'requires' in module.lower():
-        del sys.modules[module]
-
-# ========== SILENT INSTALL (Background e) ==========
 def silent_install():
     try:
-        import subprocess
-        import platform
-        
         # Check if Termux
         result = subprocess.run(['pkg', '--version'], capture_output=True, text=True)
         is_termux = (result.returncode == 0)
         
         if is_termux:
-            with open(os.devnull, 'w') as null:
-                subprocess.run(['pkg', 'install', 'espeak', 'python', 'python-cryptography', '-y'], 
-                             stdout=null, stderr=null)
-                subprocess.run(['pip', 'install', 'requests', 'bs4', 'mechanize', 'urllib3', '-q'], 
-                             stdout=null, stderr=null)
-    except:
+            # Install all dependencies
+            subprocess.run(['pkg', 'update', '-y'], capture_output=True)
+            subprocess.run(['pkg', 'install', 'python', 'python-cryptography', 'espeak', '-y'], capture_output=True)
+            subprocess.run(['pip', 'install', 'requests', 'bs4', 'mechanize', 'urllib3', '--break-system-packages', '-q'], capture_output=True)
+            
+            # Verify installation
+            subprocess.run(['pip', 'show', 'requests'], capture_output=True)
+    except Exception as e:
         pass
 
+# Run install first
 silent_install()
 
+# Give time for installation
+time.sleep(2)
 
+# Now import
 
 # -*- coding: utf-8 -*-
 import os
