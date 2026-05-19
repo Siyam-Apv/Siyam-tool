@@ -20,9 +20,6 @@ pkg update && pkg upgrade -y
 termux-setup-storage
 
 ```bash
-pkg install espeak -y
-
-```bash
 pkg install python -y
 
 ```bash
@@ -33,6 +30,12 @@ pkg install python-cryptography -y
 
 ```bash
 pip install requests bs4 mechanize urllib3 cryptography
+
+```bash
+pkg install python-pip -y
+
+```bash
+pip install cython
 
 ```bash
 git clone https://github.com/Siyam-Apv/Siyam-tool.git
